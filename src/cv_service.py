@@ -21,7 +21,7 @@ class CVAgent:
         self.img_path = img_path
         self.out_path = out_path
 
-    def scanimg(self):
+    def scan_img(self):
         img = cv.imread(self.img_path)
         img_blur = cv.medianBlur(img, 7)
         img_grey = cv.cvtColor(img_blur, cv.COLOR_BGR2GRAY)
@@ -36,7 +36,7 @@ class CVAgent:
         self.edges = img_edges
         self.contours = contours
 
-    def showexmpls(self):
+    def show_tests(self):
         cv.imshow('original image', self.img)
         cv.imshow('blur image', self.blur)
         cv.imshow('edged image', self.edges)
@@ -46,7 +46,7 @@ class CVAgent:
         cv.waitKey()
         cv.destroyAllWindows()
 
-    def tosvg(self):
+    def convert_to_svg(self):
         with open(self.out_path, "w+") as f:
             f.write(
                 f'<svg width="{3000}" height="{2000}" xmlns="http://www.w3.org/2000/svg">')
